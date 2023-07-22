@@ -20,7 +20,7 @@ namespace HT16K33_Alnum4 {
     let HT16K33_BLINK_HALFHZ = 3; // I2C value for 0.5 Hz blink
     let HT16K33_CMD_BRIGHTNESS = 0xE0; // I2C register for BRIGHTNESS setting
 
-    let displaybuffer: Array<NumberFormat.UInt16BE> = [0, 0, 0, 0];
+    let displaybuffer: Array<NumberFormat.UInt16BE> = [0, 0, 0, 0, 0, 0, 0, 0];
     let blinkNum = 0;
     let displayBrightness = 15;
 
