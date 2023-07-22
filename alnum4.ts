@@ -158,8 +158,8 @@ namespace HT16K33_Alnum4 {
         buffer[0] = 0x00; // start at address 00
         for (let i = 0; i < 4; i++) {
             let p = i ^ 2;  //new mapped position
-            buffer[(p << 1) | 1] = displaybuffer[i] & 0xFF;
             buffer[(p << 1) + 2] = displaybuffer[i] >> 8;
+            buffer[(p << 1) | 1] = displaybuffer[i] & 0xFF;
         }
         pins.i2cWriteBuffer(HT16K33_ADDR, buffer);
     }
@@ -227,10 +227,10 @@ namespace HT16K33_Alnum4 {
     }
 
     /**
-     * Prints a text on the alnum display, will scroll with interval if more than 4 letters 
+     * Prints a text on the alnum display, will scroll with interval if more than 4 letters
      */
     //% weight=87 blockGap=8
-    //% block="show|string %text" 
+    //% block="show|string %text"
     //% async
     //% blockId=alnum_print_message
     //% icon="\uf1ec" interval.defl=250
@@ -243,7 +243,7 @@ namespace HT16K33_Alnum4 {
      * Defaults to flush right
      */
     //% weight=96
-    //% blockId=alnum_print_number 
+    //% blockId=alnum_print_number
     //% block="show|number %value" blockGap=8
     //% async rightAlign.defl=1 interval.defl=250
     export function showNumber(value: number, rightAlign?: boolean, interval?: number): void {
@@ -281,7 +281,7 @@ namespace HT16K33_Alnum4 {
      * sets the blink rate of the alphanumeric display
      */
     //% weight=87 blockGap=8
-    //% block="set blink rate |%freq" 
+    //% block="set blink rate |%freq"
     //% async
     //% advanced = true
     //% blockId=alnum_blink
@@ -297,7 +297,7 @@ namespace HT16K33_Alnum4 {
      * sets the brightness of the alphanumeric display
      */
     //% weight=87 blockGap=8
-    //% block="set brightness |%brightness" 
+    //% block="set brightness |%brightness"
     //% async
     //% advanced = true
     //% blockId=alnum_brightness
