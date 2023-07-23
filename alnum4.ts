@@ -157,10 +157,9 @@ namespace HT16K33_Alnum4 {
         let buffer = pins.createBuffer(9);
         buffer[0] = 0x00; // start at address 00
         for (let i = 0; i < 4; i++) {
-            let p = i ^ 2;  //new mapped position
-            buffer[i] = displaybuffer[i];
-           // buffer[(p << 1) | 1] = displaybuffer[i] & 0xFF;
-           // buffer[(p << 1) + 2] = displaybuffer[i] >> 8;
+            let p = i ;  //new mapped position
+            buffer[(p << 1) | 1] = displaybuffer[i] & 0xFF;
+            buffer[(p << 1) + 2] = displaybuffer[i] >> 8;
         }
         pins.i2cWriteBuffer(HT16K33_ADDR, buffer);
     }
